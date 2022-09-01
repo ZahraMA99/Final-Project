@@ -1,18 +1,27 @@
 import React, { Component } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { FaBeer } from "react-icons/fa";
 import "./Navbar.css";
 
 export default class Navbar extends Component {
+  filterCities = (e) => {
+    this.props.filterCities(e.target.value);
+  };
+
   render() {
     return (
       <div>
         <div className="nav">
-          {/* <FaBeer className="fabeer" /> */}
           <NavLink to="/home" activeStyle className="logo">
             LOGO
           </NavLink>
-          {/* Search Method */}
+          <div>
+            <input
+              type="text"
+              placeholder=" Search City"
+              onChange={this.filterCities}
+            ></input>
+            {/* <button > Search </button> */}
+          </div>
         </div>
       </div>
     );

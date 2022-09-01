@@ -16,6 +16,8 @@ export default class App extends Component {
             continent: "Europe",
             FullName: "Aarhus, Denmark",
           },
+          CityDescription:
+            "Jaffa is mentioned four times in the Hebrew Bible, as a city opposite the territory given to the Hebrew Tribe of Dan",
         },
         {
           CityimageSrc:
@@ -24,6 +26,8 @@ export default class App extends Component {
             continent: "Oceania",
             FullName: "Adelaide, Australia",
           },
+          CityDescription:
+            "Jaffa is mentioned four times in the Hebrew Bible, as a city opposite the territory given to the Hebrew Tribe of Dan",
         },
         {
           CityimageSrc:
@@ -32,6 +36,8 @@ export default class App extends Component {
             continent: "North America",
             FullName: "Albuquerque, New Mexico",
           },
+          CityDescription:
+            "Jaffa is mentioned four times in the Hebrew Bible, as a city opposite the territory given to the Hebrew Tribe of Dan",
         },
         {
           CityimageSrc:
@@ -40,6 +46,8 @@ export default class App extends Component {
             continent: "Asia",
             FullName: "Almaty, Kazakhstan",
           },
+          CityDescription:
+            "Jaffa is mentioned four times in the Hebrew Bible, as a city opposite the territory given to the Hebrew Tribe of Dan",
         },
         {
           CityimageSrc:
@@ -48,6 +56,8 @@ export default class App extends Component {
             continent: "Europe",
             FullName: "Amsterdam, Netherlands",
           },
+          CityDescription:
+            "Jaffa is mentioned four times in the Hebrew Bible, as a city opposite the territory given to the Hebrew Tribe of Dan",
         },
         {
           CityimageSrc:
@@ -56,10 +66,33 @@ export default class App extends Component {
             continent: "North America",
             FullName: "Anchorage, Alaska",
           },
+          CityDescription:
+            "Jaffa is mentioned four times in the Hebrew Bible, as a city opposite the territory given to the Hebrew Tribe of Dan",
         },
       ],
+      searchCity: "",
+      filteredCities: [],
     };
   }
+
+  filterCities = (searchInput) => {
+    this.setState(
+      {
+        searchCity: searchInput,
+      },
+      () => {
+        const searchCity = this.state.searchCity;
+        let citiesInfoArray = [...this.state.citiesInfo];
+        citiesInfoArray = citiesInfoArray.CityDetails.filter((city) => {
+          return city.FullName.toLowerCase().includes(searchCity);
+        });
+        this.setState({
+          filteredCities: citiesInfoArray,
+        });
+      }
+    );
+  };
+
   render() {
     return (
       <div>
@@ -68,7 +101,16 @@ export default class App extends Component {
             <Route
               exact
               path="/home"
-              render={() => <HomePage citiesInfo={this.state.citiesInfo} />}
+              render={() => (
+                <HomePage
+                  citiesInfo={
+                    this.state.searchCity === ""
+                      ? this.state.citiesInfo
+                      : this.state.filteredCities
+                  }
+                  filterCities={this.filterCities}
+                />
+              )}
             />
           </div>
         </Router>

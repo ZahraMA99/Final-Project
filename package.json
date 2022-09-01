@@ -43,5 +43,13 @@
   "main": "index.js",
   "author": "",
   "license": "ISC",
-  "devDependencies": {}
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZahraMA99/Final-Project.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ZahraMA99/Final-Project/issues"
+  },
+  "homepage": "https://github.com/ZahraMA99/Final-Project#readme"
 }
