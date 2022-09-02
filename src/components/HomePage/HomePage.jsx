@@ -14,9 +14,9 @@ export default class HomePage extends Component {
         <Sidebar />
         <div className="cityImage">
           {citiesInfo.map((cityImage) => {
-            return (<img src={cityImage.CityimageSrc} alt="" />  );
+            return (<img src={cityImage.CityimageSrc} alt=""/>  );
           })}
-       {/* <button> More Details </button> */}
+       
         </div>
       </div>
     );

@@ -20,7 +20,6 @@ export default class Navbar extends Component {
               placeholder=" Search City"
               onChange={this.filterCities}
             ></input>
-            {/* <button > Search </button> */}
           </div>
         </div>
       </div>
