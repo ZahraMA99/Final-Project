@@ -83,8 +83,8 @@ export default class App extends Component {
       () => {
         const searchCity = this.state.searchCity;
         let citiesInfoArray = [...this.state.citiesInfo];
-        citiesInfoArray = citiesInfoArray.CityDetails.filter((city) => {
-          return city.FullName.toLowerCase().includes(searchCity);
+        citiesInfoArray = citiesInfoArray.filter((city) => {
+          return city.CityDetails.FullName.toLowerCase().includes(searchCity);
         });
         this.setState({
           filteredCities: citiesInfoArray,
